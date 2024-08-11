@@ -4,7 +4,7 @@ model User {
   clerkUserId     String  @unique
   stipeCustomerId String? @unique
 
-  firsName    String?
+  firstName   String?
   lastName    String?
   imageUrl    String?
   bio         String?
