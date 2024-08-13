@@ -1,0 +1,9 @@
+model Notes {
+  id            String          @id @default(cuid())
+  collection    CollectionNotes @relation(fields: [collection_id], references: [id])
+  collection_id String
+
+  content String
+
+  @@map("notes")
+}

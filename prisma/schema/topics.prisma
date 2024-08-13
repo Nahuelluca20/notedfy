@@ -1,0 +1,20 @@
+model Topics {
+  id                        String                      @id @default(cuid())
+  name                      String
+  description               String
+  CollectionNotesTopicsLink CollectionNotesTopicsLink[]
+
+  @@map("topics")
+}
+
+model CollectionNotesTopicsLink {
+  id String @id @default(cuid())
+
+  collection    CollectionNotes @relation(fields: [collection_id], references: [id])
+  collection_id String
+
+  topic    Topics @relation(fields: [topic_id], references: [id])
+  topic_id String
+
+  @@map("collection_notes_topics_link")
+}
