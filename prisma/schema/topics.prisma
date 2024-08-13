@@ -8,13 +8,15 @@ model Topics {
 }
 
 model CollectionNotesTopicsLink {
-  id String @id @default(cuid())
-
   collection    CollectionNotes @relation(fields: [collection_id], references: [id])
   collection_id String
 
   topic    Topics @relation(fields: [topic_id], references: [id])
   topic_id String
 
+  assignedAt DateTime @default(now())
+  assignedBy String
+
+  @@id([collection_id, topic_id])
   @@map("collection_notes_topics_link")
 }
