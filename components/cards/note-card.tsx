@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "../ui/button";
 import { Card } from "../ui/card";
+import Link from "next/link";
 
 export default function NoteCard() {
   return (
@@ -11,8 +12,10 @@ export default function NoteCard() {
           August 17, 2024 - by Catherine
         </div>
       </div>
-      <Button variant="ghost" className="ml-4">
-        <ArrowRight className="w-5 h-5" />
+      <Button variant="ghost" className="ml-4" asChild>
+        <Link href={"notes/slug-sarasa"}>
+          <ArrowRight className="w-5 h-5" />
+        </Link>
       </Button>
     </Card>
   );

@@ -4,6 +4,8 @@ model Notes {
   collection_id String
   note_date     DateTime        @default(now())
   content       String
+  slug          String          @unique
+  public        Boolean         @default(false)
 
   @@map("notes")
 }
