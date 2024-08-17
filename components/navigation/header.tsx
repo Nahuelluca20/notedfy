@@ -1,8 +1,8 @@
 import Link from "next/link";
 import React from "react";
 import { StickyNote } from "lucide-react";
-import { Button } from "./ui/button";
 import { SignedOut, SignInButton, SignedIn, UserButton } from "@clerk/nextjs";
+import { Button } from "../ui/button";
 
 export default function Header() {
   return (

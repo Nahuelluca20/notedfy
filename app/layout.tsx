@@ -10,7 +10,6 @@ import {
   SignInButton,
   UserButton,
 } from "@clerk/nextjs";
-import Header from "@/components/header";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -42,10 +41,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <div className="flex flex-col h-screen bg-background">
-              <Header />
-              <main>{children}</main>
-            </div>
+            <main>{children}</main>
           </ThemeProvider>
         </body>
       </html>
