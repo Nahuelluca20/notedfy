@@ -1,4 +1,4 @@
-import React from "react";
+import EditorWrapper from "@/components/editor/editor-wrapper";
 import type { Metadata, ResolvingMetadata } from "next";
 
 type Props = {
@@ -26,5 +26,10 @@ export async function generateMetadata(
 }
 
 export default function page({ params }: Props) {
-  return <div>{params.slug}</div>;
+  return (
+    <div>
+      {params.slug}
+      <EditorWrapper />
+    </div>
+  );
 }
