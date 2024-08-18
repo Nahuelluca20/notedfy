@@ -8,7 +8,6 @@ import {
   EditorCommandItem,
   EditorCommandList,
   EditorContent,
-  type EditorInstance,
   EditorRoot,
   type JSONContent,
 } from "novel";
@@ -16,24 +15,24 @@ import {
 import { ImageResizer, handleCommandNavigation } from "novel/extensions";
 import { handleImageDrop, handleImagePaste } from "novel/plugins";
 
-// import {
-//   slashCommand,
-//   suggestionItems,
-// } from "@/components/editor/slash-command";
-// import EditorMenu from "@/components/editor/editor-menu";
+import {
+  slashCommand,
+  suggestionItems,
+} from "@/components/editor/slash-command";
+import EditorMenu from "@/components/editor/editor-menu";
 import { uploadFn } from "@/components/editor/image-upload";
-// import { defaultExtensions } from "@/components/editor/extensions";
-// import { TextButtons } from "@/components/editor/selectors/text-buttons";
-// import { LinkSelector } from "@/components/editor/selectors/link-selector";
-// import { NodeSelector } from "@/components/editor/selectors/node-selector";
-// import { MathSelector } from "@/components/editor/selectors/math-selector";
-// import { ColorSelector } from "@/components/editor/selectors/color-selector";
+import { defaultExtensions } from "@/components/editor/extensions";
+import { TextButtons } from "@/components/editor/selectors/text-buttons";
+import { LinkSelector } from "@/components/editor/selectors/link-selector";
+import { NodeSelector } from "@/components/editor/selectors/node-selector";
+import { MathSelector } from "@/components/editor/selectors/math-selector";
+import { ColorSelector } from "@/components/editor/selectors/color-selector";
 
-// import { Separator } from "@/components/ui/separator";
+import { Separator } from "@/components/ui/separator";
 
 const hljs = require("highlight.js");
 
-// const extensions = [...defaultExtensions, slashCommand];
+const extensions = [...defaultExtensions, slashCommand];
 
 export const defaultEditorContent = {
   type: "doc",
@@ -73,7 +72,7 @@ export default function Editor({ initialValue, onChange }: EditorProps) {
         <EditorContent
           immediatelyRender={false}
           initialContent={initialValue}
-          // extensions={extensions}
+          extensions={extensions}
           className="min-h-96 rounded-xl border p-4"
           editorProps={{
             handleDOMEvents: {
@@ -98,7 +97,7 @@ export default function Editor({ initialValue, onChange }: EditorProps) {
               No results
             </EditorCommandEmpty>
             <EditorCommandList>
-              {/* {suggestionItems.map((item) => (
+              {suggestionItems.map((item) => (
                 <EditorCommandItem
                   value={item.title}
                   onCommand={(val) => item.command?.(val)}
@@ -115,11 +114,11 @@ export default function Editor({ initialValue, onChange }: EditorProps) {
                     </p>
                   </div>
                 </EditorCommandItem>
-              ))} */}
+              ))}
             </EditorCommandList>
           </EditorCommand>
 
-          {/* <EditorMenu open={openAI} onOpenChange={setOpenAI}>
+          <EditorMenu open={openAI} onOpenChange={setOpenAI}>
             <Separator orientation="vertical" />
             <NodeSelector open={openNode} onOpenChange={setOpenNode} />
 
@@ -134,7 +133,7 @@ export default function Editor({ initialValue, onChange }: EditorProps) {
 
             <Separator orientation="vertical" />
             <ColorSelector open={openColor} onOpenChange={setOpenColor} />
-          </EditorMenu> */}
+          </EditorMenu>
         </EditorContent>
       </EditorRoot>
     </div>
